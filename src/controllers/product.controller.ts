@@ -42,7 +42,7 @@ export const getProductById = async (
     const product = await Product.findById(req.params.id).populate("category");
 
     if (!product) {
-      res.status(500).json({ message: "Product not found" });
+      res.status(404).json({ message: "Product not found" });
       return;
     }
     res.status(200).json(product);
